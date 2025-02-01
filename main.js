@@ -5,3 +5,15 @@ function getComputerChoice() {
         randomNumber == 1? "paper" :
         "scissors";
 }
+
+function getHumanChoice() {
+    let humanChoice = prompt();
+
+    if (humanChoice != "rock" && 
+        humanChoice != "paper" && 
+        humanChoice != "scissors") {
+        return getHumanChoice();
+    }
+
+    return humanChoice;
+}
