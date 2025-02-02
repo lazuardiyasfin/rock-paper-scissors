@@ -7,7 +7,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let humanChoice = prompt().toLowerCase();
+    let humanChoice = prompt("Rock, Paper, Scissors, Shoot!").toLowerCase();
     
     if (humanChoice != "rock" && 
         humanChoice != "paper" && 
