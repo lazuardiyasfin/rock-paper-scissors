@@ -29,9 +29,9 @@ function playGame() {
         if (humanChoice == computerChoice) {
             console.log(`It's tie! Both players throws ${humanChoice}`);
         }
-        else if ((humanChoice == "rock" && computerChoice == "scissors") ||
-            (humanChoice == "scissors" && computerChoice == "paper") ||
-            (humanChoice == "paper" && computerChoice == "rock")) {
+        else if ((humanChoice == "Rock" && computerChoice == "Scissors") ||
+            (humanChoice == "Scissors" && computerChoice == "Paper") ||
+            (humanChoice == "Paper" && computerChoice == "Rock")) {
             console.log(`You win! ${humanChoice} beats ${computerChoice}`);
             humanScore++;
         }
