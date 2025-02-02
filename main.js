@@ -7,8 +7,8 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let humanChoice = prompt();
-
+    let humanChoice = prompt().toLowerCase();
+    
     if (humanChoice != "rock" && 
         humanChoice != "paper" && 
         humanChoice != "scissors") {
