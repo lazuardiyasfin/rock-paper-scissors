@@ -39,13 +39,31 @@ function playGame() {
             console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
             computerScore++;
         }
+
+        console.log(`You: ${humanScore} | Computer: ${computerScore}`);
     
+        return;
+    }
+
+    function getResult() {
+        if (humanScore == computerScore) {
+            console.log("Draw!");
+        }
+        if (humanScore > computerScore) {
+            console.log("You win the game!");
+        }
+        else {
+            console.log("You lose the game!");
+        }
+
         return;
     }
 
     for (let round = 1; round <= 5; round++) {
         playRound(getHumanChoice(), getComputerChoice());
     }
+
+    getResult();
 
     return;
 }
