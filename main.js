@@ -21,7 +21,7 @@ function getHumanChoice() {
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
-    
+
     function playRound(humanChoice, computerChoice) {
         humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
         computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
@@ -59,7 +59,14 @@ function playGame() {
         return;
     }
 
-    playRound(getHumanChoice(), getComputerChoice());
+    const playerChoices = document.querySelector("#choices");
+
+    playerChoices.addEventListener('click', (event) => {
+        let playerSelection = event.target.id;
+        let computerSelection = getComputerChoice();
+
+        playRound(playerSelection, computerSelection);
+    });
 
     getResult();
 
