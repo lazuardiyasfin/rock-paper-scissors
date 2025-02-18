@@ -22,25 +22,33 @@ function playGame() {
     let humanScore = 0;
     let computerScore = 0;
 
+    const resultDisplay = document.querySelector("#result");
+
+    const roundResult = document.createElement('p');
+    const gameScore = document.createElement('p');
+
+    resultDisplay.appendChild(roundResult);
+    resultDisplay.appendChild(gameScore);
+
     function playRound(humanChoice, computerChoice) {
         humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
         computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
     
         if (humanChoice == computerChoice) {
-            console.log(`It's tie! Both players throws ${humanChoice}`);
+            roundResult.textContent = `It's tie! Both players throws ${humanChoice}`;
         }
         else if ((humanChoice == "Rock" && computerChoice == "Scissors") ||
             (humanChoice == "Scissors" && computerChoice == "Paper") ||
             (humanChoice == "Paper" && computerChoice == "Rock")) {
-            console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+            roundResult.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
             humanScore++;
         }
         else {
-            console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+            roundResult.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
             computerScore++;
         }
 
-        console.log(`You: ${humanScore} | Computer: ${computerScore}`);
+        gameScore.textContent = `You: ${humanScore} | Computer: ${computerScore}`;
     
         return;
     }
