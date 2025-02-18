@@ -74,9 +74,11 @@ function playGame() {
         let computerSelection = getComputerChoice();
 
         playRound(playerSelection, computerSelection);
-    });
 
-    getResult();
+        if (humanScore == 5 || computerScore == 5) {
+            getResult();   
+        }
+    });
 
     return;
 }
