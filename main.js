@@ -78,10 +78,12 @@ function playGame() {
         let playerSelection = event.target.id;
         let computerSelection = getComputerChoice();
 
-        playRound(playerSelection, computerSelection);
+        if (playerSelection == 'rock' || playerSelection == 'paper' || playerSelection == 'scissors') {
+            playRound(playerSelection, computerSelection);
+        }
 
         if (humanScore == 5 || computerScore == 5) {
-            getResult();   
+            getResult();
         }
     });
 
