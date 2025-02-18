@@ -53,15 +53,19 @@ function playGame() {
         return;
     }
 
+    const gameResult = document.createElement('p');
+
+    resultDisplay.appendChild(gameResult);
+
     function getResult() {
         if (humanScore == computerScore) {
-            console.log("Draw!");
+            gameResult.textContent = "Draw!";
         }
-        if (humanScore > computerScore) {
-            console.log("You win the game!");
+        else if (humanScore > computerScore) {
+            gameResult.textContent = "You win the game!"
         }
         else {
-            console.log("You lose the game!");
+            gameResult.textContent = "You lose the game!";
         }
 
         return;
