@@ -22,13 +22,13 @@ function playGame() {
     let humanScore = 0;
     let computerScore = 0;
 
-    const resultDisplay = document.querySelector("#result");
+    const roundResultDisplay = document.querySelector("#round-result");
 
     const roundResult = document.createElement('p');
     const gameScore = document.createElement('p');
 
-    resultDisplay.appendChild(roundResult);
-    resultDisplay.appendChild(gameScore);
+    roundResultDisplay.appendChild(roundResult);
+    roundResultDisplay.appendChild(gameScore);
 
     function playRound(humanChoice, computerChoice) {
         humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
@@ -53,9 +53,10 @@ function playGame() {
         return;
     }
 
+    const gameResultDisplay = document.querySelector('#game-result')
     const gameResult = document.createElement('p');
 
-    resultDisplay.appendChild(gameResult);
+    gameResultDisplay.appendChild(gameResult);
 
     function getResult() {
         if (humanScore == computerScore) {
