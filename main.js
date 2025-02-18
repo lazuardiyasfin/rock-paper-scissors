@@ -73,20 +73,4 @@ function playGame() {
     return;
 }
 
-function getRematchOption() {
-    let humanOption = prompt("Rematch? (yes/no)");
-
-    if (humanOption !== "yes" && humanOption !== "no") {
-        return getRematchOption();
-    }
-
-    return humanOption === "yes" ? true : false;
-}
-
-let gameRunning = true;
-
-while (gameRunning) {
-    playGame();
-    console.log("Rematch?");
-    gameRunning = getRematchOption();
-}
+playGame();
