@@ -22,6 +22,19 @@ function playGame() {
     let humanScore = 0;
     let computerScore = 0;
 
+    const playerChoices = document.querySelector("#choices");
+
+    function handlePlayerChoice(event) {
+        let playerSelection = event.target.id;
+        let computerSelection = getComputerChoice();
+
+        if (playerSelection == 'rock' || playerSelection == 'paper' || playerSelection == 'scissors') {
+            playRound(playerSelection, computerSelection);   
+        }
+    }
+
+    playerChoices.addEventListener('click', handlePlayerChoice);
+
     const roundResultDisplay = document.querySelector("#round-result");
 
     const roundResult = document.createElement('p');
@@ -50,15 +63,14 @@ function playGame() {
 
         gameScore.textContent = `You: ${humanScore} | Computer: ${computerScore}`;
     
-        return;
+        if (humanScore == 5 || computerScore == 5) {
+            getResult();
+        }
     }
 
-    const gameResultDisplay = document.querySelector('#game-result')
-    const gameResult = document.createElement('p');
-
-    gameResultDisplay.appendChild(gameResult);
-
     function getResult() {
+        const gameResult = document.querySelector("#game-over-msg");
+
         if (humanScore == computerScore) {
             gameResult.textContent = "Draw!";
         }
@@ -68,26 +80,7 @@ function playGame() {
         else {
             gameResult.textContent = "You lose the game!";
         }
-
-        return;
     }
-
-    const playerChoices = document.querySelector("#choices");
-
-    playerChoices.addEventListener('click', (event) => {
-        let playerSelection = event.target.id;
-        let computerSelection = getComputerChoice();
-
-        if (playerSelection == 'rock' || playerSelection == 'paper' || playerSelection == 'scissors') {
-            playRound(playerSelection, computerSelection);
-        }
-
-        if (humanScore == 5 || computerScore == 5) {
-            getResult();
-        }
-    });
-
-    return;
 }
 
 playGame();
