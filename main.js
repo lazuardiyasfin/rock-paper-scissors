@@ -64,22 +64,40 @@ function playGame() {
         gameScore.textContent = `You: ${humanScore} | Computer: ${computerScore}`;
     
         if (humanScore == 5 || computerScore == 5) {
-            getResult();
+            showGameOverModal();
         }
     }
 
     function getResult() {
-        const gameResult = document.querySelector("#game-over-msg");
+        return (humanScore == computerScore) ? "Draw!" :
+            (humanScore > computerScore) ? "You win!" :
+            "You lose!";
+    }
 
-        if (humanScore == computerScore) {
-            gameResult.textContent = "Draw!";
-        }
-        else if (humanScore > computerScore) {
-            gameResult.textContent = "You win the game!"
-        }
-        else {
-            gameResult.textContent = "You lose the game!";
-        }
+    const gameOverModal = document.querySelector("#game-over");
+    const gameResult = document.querySelector("#game-over-msg");
+    const restartButton = document.querySelector("#restart-btn");
+    const overlay = document.querySelector(".overlay");
+
+    function resetGame() {
+        gameOverModal.classList.add("hidden");
+        overlay.classList.add("hidden");
+
+        roundResultDisplay.replaceChildren();
+
+        playerChoices.removeEventListener('click', handlePlayerChoice);
+        restartButton.removeEventListener('click', resetGame);
+
+        playGame();
+    }
+
+    function showGameOverModal() {
+        gameOverModal.classList.remove("hidden");
+        overlay.classList.remove("hidden");
+
+        gameResult.textContent = getResult();
+
+        restartButton.addEventListener('click', resetGame);
     }
 }
 
