@@ -6,18 +6,6 @@ function getComputerChoice() {
         "scissors";
 }
 
-function getHumanChoice() {
-    let humanChoice = prompt("Rock, Paper, Scissors, Shoot!").toLowerCase();
-    
-    if (humanChoice != "rock" && 
-        humanChoice != "paper" && 
-        humanChoice != "scissors") {
-        return getHumanChoice();
-    }
-
-    return humanChoice;
-}
-
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
