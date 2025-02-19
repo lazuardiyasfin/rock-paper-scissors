@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Inconsolata;
+}
+
+.title {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    box-sizing: border-box;
+    max-width: 1000px;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 0px 24px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.choice-btn {
+    font-size: 24px;
+    margin-bottom: 18px;
+    padding: 0px 14px;
+}
+
+#round-result {
+    text-align: center;
+    font-size: 24px;
+}
+
+.modal {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.modal-box {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 256px;
+    padding: 24px;
+}
+
+#game-over-msg {
+    font-size: 48px;
+    text-align: center;
+}
+
+#restart-btn {
+    font-size: 28px;
+    padding: 7px 14px;
+}
+
+.hidden {
+    display: none;
+}
